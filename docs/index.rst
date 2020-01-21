@@ -1,7 +1,7 @@
 Welcome
 -------
 
-Welcome to the |classbold| lab at F5 Agility |year|
+Welcome to the iRules LX lab at F5 Agility 2020
 
 |repoinfo|
 
