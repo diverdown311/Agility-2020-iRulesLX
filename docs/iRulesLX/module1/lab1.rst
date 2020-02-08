@@ -6,16 +6,16 @@ Test and Review the Existing Configuration
 
 To start off we have a web application that has a web form that we enter
 some information into and submit. Now lets look at the web app at the URL
-http://10.0.0.20/ilxlab1/ (Lab 1 on bookmarks). The response of the POST
+http://10.1.20.20/ilxlab1/ (Lab 1 on bookmarks). The response of the POST
 will show our form data and “Content-Type” header. Here is the example of
 the web form –
 
-|image1|
+
 
 Go ahead and run your own test of the web app. Observe the “Content-Type”
 header and POST data values. Here is an example of the response to a POST.
 
-|image2|
+
 
 Go ahead and run your own test of the web app. Observe the “Content-Type”
 header and POST data values. Here is an example of the response to a POST.
