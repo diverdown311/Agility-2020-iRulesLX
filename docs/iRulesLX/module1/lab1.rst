@@ -4,6 +4,9 @@ Lab 1 - Creating and Implementing an LX iRule
 Test and Review the Existing Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+All code snippets are stored on the Windows Server 2016 Jumphost within a folder
+titled ilxcode
+
 To start off we have a web application that has a web form that we enter
 some information into and submit. Now lets look at the web app at the URL
 http://10.1.20.20/ilxlab1/ (Lab 1 on bookmarks). The response of the POST
