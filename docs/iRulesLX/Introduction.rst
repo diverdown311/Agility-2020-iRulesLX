@@ -1,23 +1,15 @@
 Introduction to iRules LX
 =========================
 
-In this class we will learn how to use iRules LX with a basic example. We
-will have a web app that has a web form. When we submit the form, the
+In this lab we will learn how to use iRules LX with a basic example. We
+will have a web application that has a web form. When submitting the form, the
 page will display our POST data. As part of the lab exercise, we will
 apply an LX iRule that will convert the form POST data into JSON and
 change the Content-Type header.
 
 **Using Your Lab Environment**
 
-You will be using Ravello for this lab. We will be working with a
-Windows 7 desktop, a BIG-IP 13.0 LTM VE and a server with HTTP and SQL
-services enabled. We will be using the Windows machine as our desktop
-for accessing the applications on the BIG-IP.
-
-This diagram shows the topology of the network as it is currently
-configured -
-
-|image0|
+Connect to the Windows Jumpbox via RDP (Instructor will provide credentials)
 
 **How to Access the Labs**
 
