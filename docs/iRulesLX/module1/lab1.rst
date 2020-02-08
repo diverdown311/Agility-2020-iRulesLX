@@ -42,9 +42,9 @@ of the extension will show up. Select the *index.js* file and you should
 see a template of example code in the editor window. Normally you could
 use this example code as a starting point, but in our case we should
 delete all the example code from the window. In the Atom editor,
-locate the file named *ilxlab1.js* and double click it which should open
-it in a text editor. Copy and paste this into the index.js file on our
-BIG-IP.
+locate the file named *ilxlab1.js* within the ilxcode folder and double
+click it which should open it in a text editor. Copy and paste this into
+the index.js file on our BIG-IP.
 
 Just for reference, here is the code:
 
@@ -81,8 +81,8 @@ Next, we need to create the TCL iRule that will call our Node.js code.
 Click the button *Add iRule* at the bottom of the editor window, name
 the iRule *json\_post* and don’t check the box to include example code
 (we don’t need the example code for this lab). In the Atom editor, locate
-the file named *ilxlab1.tcl* a. Copy and paste this into the *json\_post*
-iRule file.
+the file named within the ilxcode folder called *ilxlab1.tcl* a. Copy and paste
+the contents into the *json\_post* iRule file.
 
 Just for reference, here is the code.
 
@@ -134,7 +134,7 @@ required), we will look for the TCL iRule in the *Local Traffic > iRules
 workspace located there with a Partition/Path that has the same name as
 our plugin.
 
-|image3|
+
 
 You wont be able to make changes from here. This is the same behavior as
 an iApp with strict updates enabled.
@@ -144,7 +144,7 @@ Now navigate over to our virtual server list, click the *Edit* button
 the *Manage* button for iRules. If you scroll to the bottom of the
 available iRules list, you should see the iRule from our plugin.
 
-|image4|
+
 
 Move this iRule to the over to the enabled section and click finished.
 
@@ -156,7 +156,7 @@ our app. Go back to the web form and submit the information again. You
 will see now that the data has been converted to JSON and the
 *Content-Type* header has been changed.
 
-|image5|
+
 
 As you can see, with iRules LX we can implement solutions with very few
 lines of code. If we wanted to accomplish the same goal in TCL alone, it
