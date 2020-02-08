@@ -46,30 +46,6 @@ locate the file named *ilxlab1.js* within the ilxcode folder and double
 click it which should open it in a text editor. Copy and paste this into
 the index.js file on our BIG-IP.
 
-Just for reference, here is the code:
-
-.. code-block:: javascript
-   :linenos:
-
-   'use strict' // Just for best practices
-   // Import modules here
-   var f5 = require('f5-nodejs');
-   var qs = require('querystring'); // Used for parsing the POST data querystring
-
-   // Create an ILX server instance
-   var ilx = new f5.ILXServer();
-
-   // This method will transform POST data into JSON
-   ilx.addMethod('jsonPost', function (req, res) {
-     // Get POST data from TCL and parse to JS object
-     var postData = qs.parse(req.params()[0]);
-
-     // Turn postData object into JSON and return to TCL
-     res.reply(JSON.stringify(postData));
-   });
-
-   //Start the ILX server
-   ilx.listen();
 
 Then you will need to save the changes to this file with the *Save File*
 button at the bottom of the editor window.
@@ -83,33 +59,6 @@ the iRule *json\_post* and don’t check the box to include example code
 (we don’t need the example code for this lab). In the Atom editor, locate
 the file named within the ilxcode folder called *ilxlab1.tcl* a. Copy and paste
 the contents into the *json\_post* iRule file.
-
-Just for reference, here is the code.
-
-.. code-block:: tcl
-   :linenos:
-
-   when HTTP_REQUEST {
-       # Collect POST data
-       if { [HTTP::method] eq "POST" }{
-           set cl [HTTP::header "Content-Length"]
-           HTTP::collect $cl
-       }
-   }
-   when HTTP_REQUEST_DATA {
-       # Send data to Node.js
-       set handle [ILX::init "ilxlab1_pl" "ilxlab1_ext"]
-       if {[catch {ILX::call $handle jsonPost [HTTP::payload]} result]} {
-         # Error handling
-         log local0.error  "Client - [IP::client_addr], ILX failure: $result"
-         HTTP::respond 400 content "<html>There has been an error.</html>"
-         return
-       }
-
-       # Replace Content-Type header and POST payload
-       HTTP::header replace "Content-Type" "application/json"
-       HTTP::payload replace 0 $cl $result
-   }
 
 Then you will need to save the changes to this file with the *Save File*
 button at the bottom of the editor window.
@@ -135,7 +84,6 @@ workspace located there with a Partition/Path that has the same name as
 our plugin.
 
 
-
 You wont be able to make changes from here. This is the same behavior as
 an iApp with strict updates enabled.
 
@@ -143,7 +91,6 @@ Now navigate over to our virtual server list, click the *Edit* button
 (under the *resources* column) for the virtual *ilxlab1\_vs* and select
 the *Manage* button for iRules. If you scroll to the bottom of the
 available iRules list, you should see the iRule from our plugin.
-
 
 
 Move this iRule to the over to the enabled section and click finished.
