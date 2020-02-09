@@ -6,17 +6,16 @@ Test and Review the Existing Configuration
 
 In this lab we will be working from the file ilxlab2\_steps.js. You will
 be **cutting and pasting** code from this file as directed. We will be
-working with the virtual server (10.0.0.21) & workspace named *ilxlab2*
+working with the virtual server (10.1.20.21) & workspace named *ilxlab2*
 which already has some base code in it. The plugin has already been created
 and the TCL iRule are already assigned to the virtual server.
 
 To start off we have a web application with a web form that we enter
 some information into and submit. The response of the POST will show our
 form data and “Content-Type” header. This web app is configured on our
-BIG-IP at the URL http://10.0.0.21/ilxlab2/. Now lets look at the web
+BIG-IP at the URL http://10.1.20.21/ilxlab2/. Now lets look at the web
 app in the browser. Here is the example of the web form:
 
-|image6|
 
 While we may never have a real use case with JSON in a web form, doing
 this allows us to use a web browser for the lab rather than having to
@@ -25,16 +24,13 @@ use command line tools.
 Without modifying any text in the form, pressing the submit button
 should result in this:
 
-|image7|
 
 Push the back button and modify the JSON text to so that it will be
 invalid:
 
-|image8|
 
 Then press submit and you should see this:
 
-|image9|
 
 This error came from our webserver. You can tell this because the
 webpage has the logo, header and horizontal rules. Later in this lab we
@@ -46,7 +42,7 @@ JSON.
 iRules LX Code Update Behavior
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Because the way iRules LX transitions new generations of an LX Plugin,
+Because of the way iRules LX transitions new generations of an LX Plugin,
 when we make changes to the code we will not see these changes in our
 original browser window because it is using the same TCP connection and
 is being serviced by the previous version of the LX plugin. To force the
