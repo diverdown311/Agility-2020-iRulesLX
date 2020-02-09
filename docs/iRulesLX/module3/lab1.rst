@@ -4,11 +4,11 @@ Lab 1 - Asynchronous Programming
 Test and Review the Existing Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this lab we will be working with the virtual server (10.0.0.22) &
+In this lab we will be working with the virtual server (10.1.20.22) &
 workspace named *ilxlab3*. The plugin and TCL iRule are already assigned
 to the virtual server. To start off we have a web application that
 displays a list of users in a database. This web app is configured on
-our BIG-IP at the URL http://10.0.0.22/.
+our BIG-IP at the URL http://10.1.20.22/.
 
 SQL Database Lookup
 ~~~~~~~~~~~~~~~~~~~
@@ -83,6 +83,7 @@ before and after the query method as such:
 Make sure to use the TMSH plugin restart command after you reload the
 workspace. Now tail the log contents of the log file with the following
 BASH command and then refresh the ilxlab3 web page:
+
 
 ``# tail -f /var/log/ilx/Common.ilxlab3_pl.mysql``
 
