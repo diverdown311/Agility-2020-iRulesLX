@@ -12,4 +12,4 @@ Welcome to the iRules LX lab
    :glob:
 
    intro*
-   class*/module*/lab*
+   class*/module*/module*

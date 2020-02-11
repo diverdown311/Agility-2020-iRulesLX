@@ -9,9 +9,9 @@ Test and Review the Existing Configuration
   titled **ilxcode**
 
 To start off we have a web application that has a web form that we enter
-some information into and submit. Now lets look at the web app at the URL
-**http://10.1.20.20/ilxlab1/** (Lab 1 on bookmarks). The response of the **POST**
-will show our form data and **“Content-Type”** header. Here is the example of
+some information into and submit.
+Now lets look at the web app at the URL **http://10.1.20.20/ilxlab1/** (Lab 1 on bookmarks).
+The response of the **POST** will show our form data and **“Content-Type”** header. Here is the example of
 the web form –
 
 |image1|
@@ -26,7 +26,7 @@ Create the LX Workspace
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 The first thing we need to do is create an LX Workspace. On the BIG-IP,
-navigate over to the LX workspaces menu in the tab located at 
+navigate over to the LX workspaces menu in the tab located at
 **Local Traffic > iRules > LX Workspaces.** Then select the **create** button at the
 top right of the table and name the workspace **ilxlab1**. You will now have
 an empty workspace.
@@ -69,7 +69,7 @@ Create the LX Plugin
 ~~~~~~~~~~~~~~~~~~~~
 
 Now that we have our code in a workspace, you will need to navigate over
-to the LX Plugins menu in the tab located at **Local Traffic > iRules > LX Plugins**. 
+to the LX Plugins menu in the tab located at **Local Traffic > iRules > LX Plugins**.
 Click the **Create** button, name the plugin **ilxlab1\_pl**,
 select the **ilxlab1** workspace and click **Finished**. This makes the
 Node.js code active.
@@ -128,8 +128,8 @@ would happen on a separate BIG-IP).
 Export/Import a Workspace
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Go to the **LX Workspaces** list, check the box of our *ilxlab1* 
-workspace and click the **Export** button below the list. This will 
+Go to the **LX Workspaces** list, check the box of our *ilxlab1*
+workspace and click the **Export** button below the list. This will
 save the file to the user’s **Downloads** folder.
 
 Now click the **Import** button on the top right hand corner of the
@@ -140,8 +140,8 @@ When you click the **Import** button you will be taken back to the workspace
 list and you should see the imported workspace now. Feel free to navigate into the
 imported workspace.
 
-**You have concluded lab exercise #1.**
-
+You have concluded lab exercise #1
+##################################
 
 .. |image1| image:: /_static/class3/image2.png
    :width: 5.59375in
