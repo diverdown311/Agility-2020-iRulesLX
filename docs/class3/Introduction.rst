@@ -13,8 +13,9 @@ Connect to the Windows Jumpbox via RDP (Instructor will provide credentials)
 
 **How to Access the Labs**
 
-You will receive instructions from your proctor on how to access the workstation in the lab.
-On this workstation, you will have the following applications –
+You will receive instructions from your proctor on how to access the 
+workstation in the lab.  On this workstation, you will have the
+following applications –
 
 - Atom Editor – For viewing lab code with syntax highlighting. When you open up Atom, you will
   see a list of files that will be used in these labs.
