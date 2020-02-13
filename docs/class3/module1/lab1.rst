@@ -10,14 +10,15 @@ Test and Review the Existing Configuration
 
 To start off we have a web application that has a web form that we enter
 some information into and submit.
+
 #. Now lets look at the web app at the URL **http://10.1.20.20/ilxlab1/** (Lab 1 on bookmarks).
 #. The response of the **POST** will show our form data and **“Content-Type”** header.
 #. Here is the example of the web form –
 
 |image1|
 
-#. Go ahead and run your own test of the web app. Observe the **“Content-Type”**
-  header and **POST** data values. Here is an example of the response to a POST.
+#. Go ahead and run your own test of the web app. Observe the **“Content-Type”** header and **POST** data values.
+   Here is an example of the response to a POST.
 
 |image2|
 
@@ -25,11 +26,11 @@ some information into and submit.
 Create the LX Workspace
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-The first thing we need to do is create an LX Workspace. On the BIG-IP,
-navigate over to the LX workspaces menu in the tab located at
-**Local Traffic > iRules > LX Workspaces.** Then select the **create** button at the
-top right of the table and name the workspace **ilxlab1**. You will now have
-an empty workspace.
+The first thing we need to do is create an LX Workspace.
+
+$. On the BIG-IP, navigate over to the LX workspaces menu in the tab located at **Local Traffic > iRules > LX Workspaces.**
+   Then select the **create** button at the top right of the table and name the workspace **ilxlab1**. You will now have
+   an empty workspace.
 
 Create the Extension
 ~~~~~~~~~~~~~~~~~~~~
