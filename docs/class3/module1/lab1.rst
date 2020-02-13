@@ -52,13 +52,12 @@ Create the TCL iRule
 ~~~~~~~~~~~~~~~~~~~~
 
 Next, we need to create the TCL iRule that will call our Node.js code.
+
 #. Click the button **Add iRule** at the bottom of the editor window
-#. Name the iRule **json\_post** and don’t check the box to include example code (we don’t need the example code
-   for this lab).
+#. Name the iRule **json\_post** and don’t check the box to include example code (we don’t need the example code for this lab).
 #. In the Atom editor, locate the file named within the ilxcode folder called **ilxlab1.tcl**.
 #. Copy and paste the contents into the **json\_post** iRule file.
-#. Then you will need to save the changes to this file with the **Save File** button at the bottom of the editor
-   window.
+#. Then you will need to save the changes to this file with the **Save File** button at the bottom of the editor window.
 
 Create the LX Plugin
 ~~~~~~~~~~~~~~~~~~~~
@@ -66,22 +65,20 @@ Create the LX Plugin
 #. Now that we have our code in a workspace, you will need to navigate over to the LX Plugins menu in the tab
    located at **Local Traffic > iRules > LX Plugins**
 #. Click the **Create** button, name the plugin **ilxlab1\_pl**
-#. select the **ilxlab1** workspace and click **Finished**. This makes the Node.js code active.
+#. Select the **ilxlab1** workspace and click **Finished**. This makes the Node.js code active.
 
 Apply the LX iRule to the Virtual Server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Now that we have our Node.js code running, we can put it to use. In order to use the code from the plugin we must
-assign the TCL iRule to a virtual server.
-#. Just so we can be familiar with it (but it is not required), we will look for the TCL iRule in the
-   **Local Traffic > iRules > iRules List** menu.
-#. You will find the iRule that we created in the workspace located there with a Partition/Path that has the same
-   name as our plugin.
+Now that we have our Node.js code running, we can put it to use. In order to use the code from the plugin we must assign the TCL iRule to a virtual server.
+
+#. Just so we can be familiar with it (but it is not required), we will look for the TCL iRule in the **Local Traffic > iRules > iRules List** menu.
+#. You will find the iRule that we created in the workspace located there with a Partition/Path that has the same name as our plugin.
 
    |image3|
 
 #. You wont be able to make changes from here. This is the same behavior as an iApp with strict updates enabled.
-#. Now navigate over to our virtual server list, click the **Edit** button (under the **resources** column) for
+#. Now navigate over to our virtual server list, click the **Edit** button (under the **resources** column) for 
    the virtual **ilxlab1\_vs** and select the **Manage** button for iRules.
 #. If you scroll to the bottom of the available iRules list, you should see the iRule from our plugin.
 
@@ -93,22 +90,22 @@ Testing the LX iRule
 ~~~~~~~~~~~~~~~~~~~~
 
 #. Now let’s navigate to the second tab on the browser with the web page of our app.
-#. Go back to the web form and submit the information again. You will see now that the data has been converted to
+#. Go back to the web form and submit the information again. You will see now that the data has been converted to 
    JSON and the **Content-Type** header has been changed.
 
    |image5|
 
-As you can see, with iRules LX we can implement solutions with very few lines of code. If we wanted to accomplish
+As you can see, with iRules LX we can implement solutions with very few lines of code. If we wanted to accomplish 
 the same goal in TCL alone, it would most likely take several hundred lines of code.
 
 Workspace Package Management
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Lastly, we will show package management for LX workspaces. While it is fairly simple to move TCL iRules from a
-dev/test environment to production because it is a single file, iRules LX can have an almost unlimited number of
-files depending on how many NPM modules a solution needs. Therefore, workspaces have been given the ability to
-export and import packages as a tgz file to have a more convenient method of transporting iRules LX code. In this
-exercise, we will export our package and import it back into the same device (but normally import would happen on
+Lastly, we will show package management for LX workspaces. While it is fairly simple to move TCL iRules from a 
+dev/test environment to production because it is a single file, iRules LX can have an almost unlimited number of 
+files depending on how many NPM modules a solution needs. Therefore, workspaces have been given the ability to 
+export and import packages as a tgz file to have a more convenient method of transporting iRules LX code. In this 
+exercise, we will export our package and import it back into the same device (but normally import would happen on 
 a separate BIG-IP).
 
 Export/Import a Workspace
@@ -124,7 +121,7 @@ Export/Import a Workspace
    imported workspace now. Feel free to navigate into the imported workspace.
 
 **You have concluded lab exercise #1**
-##################################
+######################################
 
 .. |image1| image:: /_static/class3/image2.png
    :width: 5.59375in
