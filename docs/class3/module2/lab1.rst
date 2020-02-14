@@ -1,48 +1,9 @@
-Lab 1 - Asynchronous Programming
---------------------------------
+Lab 1 - NPM and Exception Handling
+----------------------------------
 
 Test and Review the Existing Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-<<<<<<< HEAD:docs/iRulesLX/module2/lab1.rst
-In this lab we will be working with the virtual server (10.1.20.22) &
-workspace named *ilxlab3*. The plugin and TCL iRule are already assigned
-to the virtual server. To start off we have a web application that
-displays a list of users in a database. This web app is configured on
-our BIG-IP at the URL http://10.1.20.22/.
-
-SQL Database Lookup
-~~~~~~~~~~~~~~~~~~~
-
-In this lab we are simply going to view some log statements into the
-Node.js and look at the order they appear in the log file. First we will
-review the sql query method in our extension code highlighted below:
-
-.. code-block:: javascript
-   :linenos:
-   :emphasize-lines: 4-18
-
-   // Add a method
-   ilx.addMethod('get_users', function(req, res) {
-     // Perform the query from pool
-     sqlPool.query(
-       'SELECT id, name, grp FROM users_db.users ORDER BY id;',
-       function(err, rows) {
-         if (err) {
-           // MySQL query failed for some reason, send a 2 back to TCK
-           console.error('Error with query: ', err.message);
-           return res.reply(2);
-         }
-
-         // Check array length from sql
-         if (rows.length)
-           res.reply([0, rows]);
-         else
-           res.reply(1); // if 0 return 1 to the Tcl iRule to show no matching records
-       }
-     );
-   });
-=======
 In this lab we will be working from the file **ilxlab2\_steps.js**. You will
 be **cutting and pasting** code from this file as directed. We will be
 working with the virtual server (10.1.20.21) & workspace named **ilxlab2**
@@ -171,60 +132,17 @@ throw an exception, but we would like to add more functionality to it.
         // Send data back to TCL
         res.reply(postData);
       });
->>>>>>> d1189f21a2d9d72f47df1eacfa1873030e24fe7c:docs/class3/module2/lab1.rst
 
-You will notice that the function has 2 arguments, the first being the
-text of the actual query. Because this method is asynchronous, the
-second argument is the callback function that will get executed when the
-query answer is received by Node.js.
 
-<<<<<<< HEAD:docs/iRulesLX/module2/lab1.rst
-To demonstrate asynchronous behavior, we will put logging statements
-before and after the query method as such:
-=======
 All we are doing is extracting the form input box labeled “JSON”. But we
 would like to insert more data into the JSON that we send to the
 application. 
->>>>>>> d1189f21a2d9d72f47df1eacfa1873030e24fe7c:docs/class3/module2/lab1.rst
 
 #. In order to do that, we must first parse the JSON to a JS
    object, then stringify it again. Go to the **code\_instructions** and
    complete **code step 1** (remember to copy and paste). The ILX addMethod code should look like this
    after you are done (changes are highlighted) -
 
-<<<<<<< HEAD:docs/iRulesLX/module2/lab1.rst
-.. code-block:: javascript
-   :linenos:
-   :emphasize-lines: 4, 13, 22
-
-   // Add a method 
-   ilx.addMethod('get_users', function(req, res) {
-     // Perform the query from pool
-     console.log('Starting SQL query');
-     sqlPool.query(
-       'SELECT id, name, grp FROM users_db.users ORDER BY id;',
-       function(err, rows) {
-         if (err) {
-           // MySQL query failed for some reason, send a 2 back to TCK
-           console.error('Error with query: ', err.message);
-           return res.reply(2);
-         }
-         console.log('There are', rows.length,'records in the DB.');
-   
-         // Check array length from sql
-         if (rows.length)
-           res.reply([0, rows]);
-         else
-           res.reply(1); // if 0 return 1 to the Tcl iRule to show no matching records
-       }
-     );
-     console.log('SQL query finished.');
-   });
-   
-Make sure to use the TMSH plugin restart command after you reload the
-workspace. Now tail the log contents of the log file with the following
-BASH command and then refresh the ilxlab3 web page:
-=======
    **Code Step 1**
 
    .. code-block:: javascript
@@ -235,18 +153,10 @@ BASH command and then refresh the ilxlab3 web page:
         // Extract JSON from POST data
         var postData = qs.parse(req.params()[0]).JSON;
         var jsonData = JSON.parse(postData);
->>>>>>> d1189f21a2d9d72f47df1eacfa1873030e24fe7c:docs/class3/module2/lab1.rst
 
         res.reply(JSON.stringify(jsonData));
       });
 
-<<<<<<< HEAD:docs/iRulesLX/module2/lab1.rst
-``# tail -f /var/log/ilx/Common.ilxlab3_pl.mysql``
-
-What do you notice about the order of the log statements?
-
-Now let’s make the following changes to the node.js as seen below.
-=======
 
 #. Save and reload the workpsace. Now submit some invalid JSON in the form
    like we did earlier. You will see an text only error like this:
@@ -280,51 +190,10 @@ Now let’s make the following changes to the node.js as seen below.
 
 #. As you can see, our bad JSON threw an exception that crashed the Node.js
    process which caused an ILX timeout in TCL. This is the stack track for our exception.
->>>>>>> d1189f21a2d9d72f47df1eacfa1873030e24fe7c:docs/class3/module2/lab1.rst
 
 #. To prevent Node.js from crashing we need to put JSON.parse in a try/catch block. Perform
    code step 2 on the workspace to do this. The Node function should end up like this –
 
-<<<<<<< HEAD:docs/iRulesLX/module2/lab1.rst
-.. code-block:: javascript
-   :linenos:
-   :emphasize-lines: 20, 23
-
-   // Add a method
-   ilx.addMethod('get_users', function(req, res) {
-     // Perform the query from pool
-     console.log('Starting SQL query');
-     sqlPool.query(
-       'SELECT id, name, grp FROM users_db.users ORDER BY id;',
-       function(err, rows) {
-         if (err) {
-           // MySQL query failed for some reason, send a 2 back to TCK
-           console.error('Error with query: ', err.message);
-           return res.reply(2);
-         }
-         console.log('There are', rows.length,'records in the DB.');
-
-         // Check array length from sql
-         if (rows.length)
-           res.reply([0, rows]);
-         else
-           res.reply(1); // if 0 return 1 to the Tcl iRule to show no matching records
-         console.log('SQL query is really finished.');
-       }
-     );
-     console.log('Function call is finished.');
-   });
-
-Use the TMSH plugin restart command after you reload the workspace. Now
-tail the log contents of the log file again and then refresh the ilxlab3
-web page. You will see that they are in the right order. The callback
-function is executed much later because I/O responses take much longer.
-
-But you might ask, how much later is the callback function executing? To
-answer that question, lets add some more code:
-
-**Code Step 3**
-=======
    **Code Step 2**
 
    .. code-block:: javascript
@@ -548,42 +417,132 @@ validator module to validate the syntax of the email address. Here is
 what the code will look like once you are finished:
 
 **Code Step 5 Node.js**
->>>>>>> d1189f21a2d9d72f47df1eacfa1873030e24fe7c:docs/class3/module2/lab1.rst
 
 .. code-block:: javascript
    :linenos:
-   :emphasize-lines: 5, 21
+   :emphasize-lines: 6, 22, 23
 
-   // Add a method
-   ilx.addMethod('get_users', function(req, res) {
-     // Perform the query from pool
-     console.log('Starting SQL query');
-     var start = Date.now();
-     sqlPool.query(
-       'SELECT id, name, grp FROM users_db.users ORDER BY id;',
-       function(err, rows) {
-         if (err) {
-           // MySQL query failed for some reason, send a 2 back to TCK
-           console.error('Error with query: ', err.message);
-           return res.reply(2);
-         }
-         console.log('There are', rows.length,'records in the DB.');
+   'use strict' // Just for best practices
+   // Import modules here
+   var f5 = require('f5-nodejs');
+   var qs = require('querystring');
+   var crypto = require('crypto');
+   var validator = require('validator');
 
-         // Check array length from sql
-         if (rows.length)
-           res.reply([0, rows]);
-         else
-           res.reply(1); // if 0 return 1 to the Tcl iRule to show no matching records
-         console.log('SQL query is really finished, time:', Date.now() - start, 'msec');
-       }
-     );
+   // Create an ILX server instance
+   var ilx = new f5.ILXServer();
 
-     console.log('Function call is finished.');
+   // This method will transform POST data into JSON
+   ilx.addMethod('jsonParse', function (req, res) {
+     // Extract JSON from POST data
+     var postData = qs.parse(req.params()[0]).JSON;
+     try {
+       var jsonData = JSON.parse(postData);
+     } catch (err) {
+       console.log('Error with JSON.parse: ' + err.message);
+       return res.reply(1);
+     }
+
+     if (! ('email' in jsonData)) return res.reply(2); //
+     if (! validator.isEmail(jsonData.email)) return res.reply(3);
+     postData.token = crypto.randomBytes(8).toString('hex')
+     res.reply([0, JSON.stringify(jsonData)]);
    });
 
-Use the TMSH plugin restart command after you reload the workspace. Now
-tail the log contents of the log file again and then refresh the ilxlab3
-web page. Most likely, you are seeing that the time logged is in the
-order of tens of milliseconds. As you saw from the I/O time table in the
-presentation, this is an eternity compared to reads from local memory.
+   ilx.listen();
 
+You will notice that we check first for the existence of the email property
+in the JSON and then check if the string in the JSON is valid. If you
+attempted to only do the email validation but the email property was not
+present, this would throw an exception for a missing property in the JS
+object and crash Node.
+
+
+**Code Step 5 TCL**
+
+.. code-block:: tcl
+   :linenos:
+   :emphasize-lines: 14, 15
+
+   when HTTP_REQUEST_DATA {
+       # Send data to Node.js
+       set handle [ILX::init "json_parser_pl" "parser_ext"]
+       if {[catch {ILX::call $handle jsonParse [HTTP::payload]} result]} {
+         log local0.error  "Client - [IP::client_addr], ILX failure: $result"
+         HTTP::respond 400 content "<html>There has been an error.</html>"
+         return
+       }
+
+       if {[lindex $result 0] > 0} {
+         # What is our error code?
+         switch [lindex $result 0] {
+           1 { set error_msg "Invalid JSON"}
+           2 { set error_msg "Property \"email\" missing from JSON."}
+           3 { set error_msg "Property \"email\" not a valid email address."}
+         }
+         HTTP::respond 400 content "<html>The following error occured: $error_msg</html>"
+       } else {
+         #Replace Content-Type header and POST payload
+         HTTP::header replace "Content-Type" "application/json"
+         HTTP::payload replace 0 $cl [lindex $result 1]
+       }
+   }
+
+Both the email property presence check and invalid email error get an
+error code that we pass over to TCL to give the client a useable error
+message. Now we can test these error conditions.
+
+Save and reload the workspace. Go to your browser and remove the email
+property and trailing comma from the password property like so:
+
+|image14|
+
+When you press submit, you should see an error like this:
+
+|image15|
+
+Now go back to the form and refresh the web form back
+to normal. Now remove the “@” symbol the email address:
+
+|image16|
+
+Then submit the form and you should see the following:
+
+|image17|
+
+.. |image6| image:: /_static/class3/image7.png
+   :width: 3.35047in
+   :height: 2.74171in
+.. |image7| image:: /_static/class3/image8.png
+   :width: 3.61001in
+   :height: 2.08705in
+.. |image8| image:: /_static/class3/image9.png
+   :width: 3.15999in
+   :height: 2.42508in
+.. |image9| image:: /_static/class3/image10.png
+   :width: 4.44534in
+   :height: 1.55393in
+.. |image10| image:: /_static/class3/image11.png
+   :width: 5.28966in
+   :height: 0.88318in
+.. |image11| image:: /_static/class3/image12.png
+   :width: 3.67347in
+   :height: 0.59130in
+.. |image12| image:: /_static/class3/image13.png
+   :width: 3.42615in
+   :height: 2.18037in
+.. |image13| image:: /_static/class3/image14.png
+   :width: 5.63090in
+   :height: 1.78672in
+.. |image14| image:: /_static/class3/image15.png
+   :width: 2.58703in
+   :height: 2.41944in
+.. |image15| image:: /_static/class3/image16.png
+   :width: 5.17619in
+   :height: 0.60586in
+.. |image16| image:: /_static/class3/image17.png
+   :width: 2.75043in
+   :height: 2.37327in
+.. |image17| image:: /_static/class3/image18.png
+   :width: 5.45094in
+   :height: 0.40864in
