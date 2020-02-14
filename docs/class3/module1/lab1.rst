@@ -15,7 +15,7 @@ To start off we have a web application that has a web form that we enter some in
 
    |image1|
 
-#. Go ahead and run your own test of the web app. Observe the **“Content-Type”** header and **POST** data values.
+#. Go ahead and run your own test of the web app. Observe the **“Content-Type”** header and **POST** data values. 
 #. Here is an example of the response to a POST -
 
    |image2|
