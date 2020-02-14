@@ -1,11 +1,10 @@
-NPM and Exception Handling
-============================================
+Asynchronous Programming
+=========================================
 
-In this lab exercise, we will cover two topics. In the first topic we
-will introduce you to the concept of exception handling to prevent
-crashes of our node process and the second topic will be installing
-packages with NPM. The second portion topic will build upon the work
-done in the first topic.
+In this lab we will demonstrate the concept of asynchronous programing
+with a LX iRule that will do queries to a MySQL database. For this
+exercise, we will be using the file ``ilxlab3_steps.js`` to cut and
+paste code into the BIG-IP.
 
 .. toctree::
    :maxdepth: 1

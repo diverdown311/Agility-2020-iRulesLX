@@ -1,10 +1,11 @@
-Asynchronous Programming
-=========================================
+iRules LX Streaming
+====================================
 
-In this lab we will demonstrate the concept of asynchronous programing
-with a LX iRule that will do queries to a MySQL database. For this
-exercise, we will be using the file ``ilxlab3_steps.js`` to cut and
-paste code into the BIG-IP.
+In this lab exercise, you will learn how to create LX plugins that can be
+use in streaming or HTTP mode. In the interest of time, we will taking
+existing workspaces then and take the code to a full working configuration
+on a virtual server. We will be using the virtual server ilxlab4_stream_vs
+(10.0.0.23).
 
 .. toctree::
    :maxdepth: 1
