@@ -17,6 +17,3 @@ The following components have been included in your lab environment:
 - 1 x F5 BIG-IP VE
 - 1 x Linux LAMP Webserver
 - 1 x Windows Jumphost
-
-
-
